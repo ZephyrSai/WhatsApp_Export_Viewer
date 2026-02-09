@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Export Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="vendor/jszip.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div id="appShell" class="app-shell">
+      <header class="top-bar">
+        <div class="brand">
+          <button id="toggleSidebarBtn" class="icon-btn" type="button" aria-label="Toggle chats">☰</button>
+          <div>
+            <h1>WhatsApp Export Viewer</h1>
+            <p>Local, private, self-contained viewer for exported chats</p>
+          </div>
+        </div>
+        <div class="loader-actions">
+          <label class="action-chip" for="zipInput">Load ZIP(s)</label>
+          <input id="zipInput" type="file" accept=".zip" multiple />
+
+          <label class="action-chip" for="folderInput">Load Folder</label>
+          <input id="folderInput" type="file" webkitdirectory directory multiple />
+
+          <button id="clearBtn" class="action-chip danger" type="button">Clear</button>
+        </div>
+      </header>
+
+      <div id="dropOverlay" class="drop-overlay" aria-hidden="true">
+        <div class="drop-card">Drop WhatsApp ZIPs or extracted export folders here</div>
+      </div>
+
+      <div class="content-grid">
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-search">
+            <input id="chatSearchInput" type="search" placeholder="Search chats" />
+          </div>
+          <div id="conversationList" class="conversation-list"></div>
+        </aside>
+
+        <main class="chat-pane">
+          <header class="chat-header">
+            <div>
+              <h2 id="chatTitle">No chat loaded</h2>
+              <p id="chatMeta">Load one or more exports to start</p>
+            </div>
+            <div class="chat-controls">
+              <label>
+                Me:
+                <select id="selfSelector"></select>
+              </label>
+              <input id="messageSearchInput" type="search" placeholder="Search messages" />
+            </div>
+          </header>
+          <section id="messageList" class="message-list"></section>
+        </main>
+      </div>
+
+      <footer class="status-bar">
+        <span id="statusText">Ready</span>
+      </footer>
+    </div>
+  </body>
+</html>
