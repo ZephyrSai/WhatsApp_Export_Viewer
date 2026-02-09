@@ -2,11 +2,6 @@
 
 A fully client-side web app that renders WhatsApp chat exports (messages + media) in a WhatsApp Web-like UI.
 
-## Single File Build
-
-The app is now fully self-contained in `index.html` (CSS + JS + JSZip are inlined).
-For GitHub Pages, you only need `index.html`.
-
 ## Features
 
 - Load one or many WhatsApp export ZIPs (`.zip`)
